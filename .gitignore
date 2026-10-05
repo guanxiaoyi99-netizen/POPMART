@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# 数据缓存(含 bilibili 会话令牌等敏感信息,不入库)
+data/_cache/

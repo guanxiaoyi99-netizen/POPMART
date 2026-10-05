@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP MART Hot Search &amp; Comment Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>window.echarts || document.write('<script src="https://cdn.staticfile.org/echarts/5.4.3/echarts.min.js"><\/script>');</script>
+</head>
+<body>
+<div class="header">
+    <h1>POP MART Hot Search &amp; Comment Analytics Dashboard</h1>
+    <p>Data sources: Weibo hot search archive · multi-platform hot search archive (Weibo/Douyin/Bilibili) · Bilibili public comment API · Pop Mart 2024 Annual Report (9992.HK) · Bernstein consumer survey (n=850) &nbsp;|&nbsp; Data retrieved: <span id="retrieved-at">--</span></p>
+</div>
+<div class="nav">
+    <button class="active" onclick="switchTab('overview')">Overview</button>
+    <button onclick="switchTab('ip')">IP Analysis</button>
+    <button onclick="switchTab('sentiment')">Sentiment</button>
+    <button onclick="switchTab('platform')">Platforms</button>
+    <button onclick="switchTab('user')">Users</button>
+    <button onclick="switchTab('hotsearch')">Hot Search</button>
+    <button onclick="switchTab('comments')">Comments</button>
+</div>
+<div class="container">
+    <!-- Overview -->
+    <div id="overview" class="section active">
+        <div class="kpi-row">
+            <div class="kpi-card"><div class="value" id="kpi-total-search">--</div><div class="label">Total Weibo Hot Value (real)</div></div>
+            <div class="kpi-card"><div class="value" id="kpi-total-comments">--</div><div class="label">Real Comments (Bilibili)</div></div>
+            <div class="kpi-card"><div class="value" id="kpi-positive-rate">--</div><div class="label">Positive Rate (snownlp)</div></div>
+            <div class="kpi-card"><div class="value" id="kpi-top-ip">--</div><div class="label">Hottest IP (by Weibo hot value)</div></div>
+        </div>
+        <div class="chart-grid">
+            <div class="chart-card full-width"><h3>IP 2024 Revenue Ranking (Annual Report, ¥100M)</h3><div id="chart-ip-bar" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Comment Sentiment Distribution (Bilibili)</h3><div id="chart-sentiment-pie" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Hot Search Entries by Platform (real archive counts)</h3><div id="chart-platform-bar" class="chart-box"></div></div>
+        </div>
+    </div>
+    <!-- IP Analysis -->
+    <div id="ip" class="section">
+        <div class="chart-grid">
+            <div class="chart-card"><h3>IP Revenue vs YoY Growth (2024 Annual Report)</h3><div id="chart-ip-scatter" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Weibo Hot Value by IP (real + allocated)</h3><div id="chart-ip-comments-bar" class="chart-box"></div></div>
+            <div class="chart-card"><h3>IP Profile Radar (normalized)</h3><div id="chart-ip-sentiment-radar" class="chart-box"></div></div>
+            <div class="chart-card"><h3>IP Performance Heatmap (normalized)</h3><div id="chart-ip-heatmap" class="chart-box"></div></div>
+        </div>
+    </div>
+    <!-- Sentiment Analysis -->
+    <div id="sentiment" class="section">
+        <div class="chart-grid">
+            <div class="chart-card full-width"><h3>Sentiment Distribution by Category (snownlp on Bilibili comments)</h3><div id="chart-sentiment-stacked" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Avg Likes: Positive vs Negative</h3><div id="chart-sentiment-likes" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Category Sentiment Heatmap</h3><div id="chart-sentiment-heatmap" class="chart-box"></div></div>
+        </div>
+    </div>
+    <!-- Platform Distribution -->
+    <div id="platform" class="section">
+        <div class="chart-grid">
+            <div class="chart-card"><h3>Hot Search Entries &amp; Engagement by Platform (engagement estimated)</h3><div id="chart-platform-compare" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Hot Search Entry Share by Platform (real archive counts)</h3><div id="chart-platform-pie" class="chart-box"></div></div>
+            <div class="chart-card full-width"><h3>Hot Search Entries by Month × Platform (real archive counts)</h3><div id="chart-platform-heatmap" class="chart-box"></div></div>
+            <div class="chart-card full-width"><h3>Bilibili Comment Activity by Hour (real comment timestamps)</h3><div id="chart-platform-hours" class="chart-box"></div></div>
+        </div>
+    </div>
+    <!-- User Profile -->
+    <div id="user" class="section">
+        <div class="kpi-row">
+            <div class="kpi-card"><div class="value" id="kpi-user-repurchase">--</div><div class="label">Member Repurchase Rate (2024 Annual Report)</div></div>
+            <div class="kpi-card"><div class="value" id="kpi-user-members">--</div><div class="label">2024 Total Members</div></div>
+            <div class="kpi-card"><div class="value" id="kpi-user-newmembers">--</div><div class="label">2024 New Members</div></div>
+        </div>
+        <div class="chart-grid">
+            <div class="chart-card"><h3>Age Distribution (Bernstein survey, n=850)</h3><div id="chart-user-age" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Gender Ratio (Bernstein survey)</h3><div id="chart-user-gender" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Annual Spending Segments (Bernstein survey)</h3><div id="chart-user-spending" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Purchase Frequency (Bernstein survey)</h3><div id="chart-user-frequency" class="chart-box"></div></div>
+            <div class="chart-card"><h3>First-Touch IP (Bernstein survey)</h3><div id="chart-user-firstip" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Purchase Motives, 5-point (Bernstein survey)</h3><div id="chart-user-motive" class="chart-box"></div></div>
+        </div>
+    </div>
+    <!-- Hot Search Trends -->
+    <div id="hotsearch" class="section">
+        <div class="chart-grid">
+            <div class="chart-card full-width"><h3>Hot Search Volume Timeline (Weibo = real hot value, others = rank-based estimate)</h3><div id="chart-hotsearch-timeline" class="chart-box"></div></div>
+            <div class="chart-card full-width"><h3>Hot Search Entries by Month × Platform (real archive counts)</h3><div id="chart-hotsearch-monthly" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Hot Search Category Share</h3><div id="chart-hotsearch-category" class="chart-box"></div></div>
+            <div class="chart-card"><h3>Hot Search Count by Platform</h3><div id="chart-hotsearch-platform" class="chart-box"></div></div>
+        </div>
+    </div>
+    <!-- Top Comments -->
+    <div id="comments" class="section">
+        <div class="chart-grid">
+            <div class="chart-card"><h3>Top 10 Comments by Likes (real Bilibili comments)</h3><div class="comment-list" id="top-comments"></div></div>
+            <div class="chart-card"><h3>Comment Sentiment by IP (snownlp)</h3><div id="chart-comment-sentiment" class="chart-box"></div></div>
+        </div>
+    </div>
+</div>
+<div class="footer-note">
+    Notes: Weibo hot values are real-time platform algorithm values and not comparable across periods; sentiment labels are snownlp model estimates, not human labels; Xiaohongshu is excluded (no public historical archive); engagement by platform, multi-platform hot values and some YoY figures are estimates anchored on real data (flagged in the volume_note/note columns). See data/data_sources.md for full sourcing.
+</div>
+<script src="main.js"></script>
+</body>
+</html>

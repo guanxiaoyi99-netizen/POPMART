@@ -1,0 +1,24 @@
+metric,segment,label,value,unit,source
+age_distribution,25-34,25-34 years,47.6,percent,Bernstein 2025-12 (n=850)
+age_distribution,18-44_other,Other 18-44,44.4,percent,Bernstein 2025-12 (n=850)
+age_distribution,45plus,45+ years,8.0,percent,Bernstein 2025-12 (n=850)
+gender,female,Female,61.2,percent,Bernstein 2025-12 (n=850)
+gender,male,Male,38.8,percent,Bernstein 2025-12 (n=850)
+spending,lte500,Annual spend ≤¥500,69.0,percent,Bernstein 2025-12 (n=850)
+spending,gt500,Annual spend >¥500,31.0,percent,Bernstein 2025-12 (n=850)
+frequency,once_only,Bought once only,21.0,percent,Bernstein 2025-12 (n=850)
+frequency,every_2_3_months,Every 2-3 months,25.0,percent,Bernstein 2025-12 (n=850)
+frequency,monthly_plus,Monthly or more,16.5,percent,Bernstein 2025-12 (n=850)
+first_touch_ip,Labubu,First-touch IP: Labubu,37.9,percent,Bernstein 2025-12 (n=850)
+first_touch_ip,Molly,First-touch IP: Molly,12.3,percent,Bernstein 2025-12 (n=850)
+motive,design,Design/Aesthetics (5-pt),4.38,score,Bernstein 2025-12 (n=850)
+motive,ip_love,Love for IP (5-pt),4.27,score,Bernstein 2025-12 (n=850)
+motive,hidden,Hunting hidden items (5-pt),3.6,score,Bernstein 2025-12 (n=850)
+motive,set_collect,Complete sets (5-pt),2.49,score,Bernstein 2025-12 (n=850)
+motive,social,Social/trend following (5-pt),2.43,score,Bernstein 2025-12 (n=850)
+trigger,offline_store,Offline store visits,64.0,percent,Bernstein 2025-12 (n=850)
+trigger,social_media,Social media content,54.0,percent,Bernstein 2025-12 (n=850)
+trigger,official_marketing,Official marketing,47.0,percent,Bernstein 2025-12 (n=850)
+repurchase,overall,Member repurchase rate,49.4,percent,Pop Mart 2024 Annual Report
+membership,total_2024,2024 total members (10k),4608.3,ten_thousand,Pop Mart 2024 Annual Report
+membership,new_2024,2024 new members (10k),1172.9,ten_thousand,Pop Mart 2024 Annual Report

@@ -1,0 +1,9 @@
+ip_name,revenue_100m_yuan,revenue_yoy_pct,weibo_hot_value_sum,weibo_hotsearch_count,comment_count,avg_sentiment_score,note
+THE MONSTERS (Labubu),30.41,726.6,633736,0,42,0.655,incl. brand-level hot value allocated by revenue share
+MOLLY,20.93,105.2,436176,0,6,0.833,incl. brand-level hot value allocated by revenue share
+SKULLPANDA,13.08,27.7,272584,0,6,0.917,incl. brand-level hot value allocated by revenue share
+CRYBABY,11.65,1537.2,242783,0,3,1.0,incl. brand-level hot value allocated by revenue share
+DIMOO,9.1,23.3,189642,0,2,0.5,incl. brand-level hot value allocated by revenue share
+HIRONO,7.27,107.1,400542,2,2,1.0,Computed from 2023/2024 annual reports; incl. brand-level hot value allocated by revenue share
+Other IPs,37.94,39.0,790660,0,0,0.0,Computed from 2023/2024 annual reports; incl. brand-level hot value allocated by revenue share
+Brand-level,130.38,106.9,0,0,55,0.645,

@@ -1,0 +1,4 @@
+platform,hotsearch_entry_count,hotsearch_days,comment_count,avg_likes,avg_replies,note
+Weibo,13,13,0,496.3,4.9,Engagement estimated via platform multipliers
+Douyin,1,1,0,721.9,7.4,Engagement estimated via platform multipliers
+Bilibili,2,0,116,451.2,6.2,Real (Bilibili API); entry count gap-filled
